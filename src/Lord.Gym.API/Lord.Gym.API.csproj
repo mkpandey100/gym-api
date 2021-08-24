@@ -15,10 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Lord.Core.API\Lord.Core.API.csproj" />
-    <ProjectReference Include="..\Lord.Core.SignalR\Lord.Core.SignalR.csproj" />
     <ProjectReference Include="..\Lord.Gym.Application\Lord.Gym.Application.csproj" />
     <ProjectReference Include="..\Lord.Gym.Infrastructure\Lord.Gym.Infrastructure.csproj" />
+    <ProjectReference Include="..\shared\Lord.Core.API\Lord.Core.API.csproj" />
+    <ProjectReference Include="..\shared\Lord.Core.SignalR\Lord.Core.SignalR.csproj" />
   </ItemGroup>
 
   <ItemGroup>
