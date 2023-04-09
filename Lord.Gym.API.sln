@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31025.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lord.Gym.API", "src\Lord.Gym.API\Lord.Gym.API.csproj", "{258A7710-D484-4F1E-9A01-C061BFBF9DFF}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{15A2AAA0-46E3-49EA-A251-93D33ACEC9F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9E5E0F22-8016-4CC7-BEA8-A8BAB710BB57}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A34001AD-7F7A-4650-B22E-A50333D634F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{5DF6A8A0-B54A-48A5-AA34-561969351E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DF6A8A0-B54A-48A5-AA34-561969351E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DF6A8A0-B54A-48A5-AA34-561969351E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A34001AD-7F7A-4650-B22E-A50333D634F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A34001AD-7F7A-4650-B22E-A50333D634F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A34001AD-7F7A-4650-B22E-A50333D634F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A34001AD-7F7A-4650-B22E-A50333D634F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

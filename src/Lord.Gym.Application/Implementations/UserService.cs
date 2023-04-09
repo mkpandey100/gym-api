@@ -1,20 +1,25 @@
 ﻿using Lord.Gym.Application.Interfaces;
 using Lord.Gym.Domain.Entities.Auth;
 using Lord.Gym.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
+using Nest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Lord.Gym.Application.Implementations
 {
     public class UserService : IUserService
     {
         private ApplicationDbContext _context;
+        private IElasticClient _elasticClient;
 
-        public UserService(ApplicationDbContext context)
+        public UserService(ApplicationDbContext context, IElasticClient elasticClient)
         {
             _context = context;
+            _elasticClient = elasticClient;
         }
 
         public AppUser Authenticate(string username, string password)
@@ -36,9 +41,16 @@ namespace Lord.Gym.Application.Implementations
             return user;
         }
 
-        public IEnumerable<AppUser> GetAll()
+        public async Task<List<AppUser>> GetAll()
         {
-            return _context.Users;
+            var name = "mahendra";
+            var response = await _elasticClient.SearchAsync<AppUser>(s => s
+                            .Query(q => q.Term(t => t.FirstName, name) ||
+                            q.Match(m => m.Field(f => f.FirstName).Query(name))));
+
+            var test = response?.Documents.ToList();
+
+            return await _context.Users.ToListAsync();
         }
 
         public AppUser GetById(Guid id)

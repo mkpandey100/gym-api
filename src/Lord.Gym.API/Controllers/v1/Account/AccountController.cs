@@ -3,7 +3,9 @@ using Lord.Core.API.Controllers;
 using Lord.Gym.Application.Interfaces;
 using Lord.Gym.Application.Models;
 using Lord.Gym.Domain.Entities.Auth;
+using Lord.Gym.Infrastructure.Authentication;
 using Lord.Gym.Infrastructure.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -90,6 +92,20 @@ namespace Lord.Gym.API.Controllers.v1.Account
             catch (System.Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        [HttpGet]
+        [ServiceFilter(typeof(ApiKeyAuthFilter))]
+        public IActionResult GetAll()
+        {
+            try
+            {
+               return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw;
             }
         }
     }

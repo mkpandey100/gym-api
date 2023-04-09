@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Lord.Gym.Application.Interfaces
 {
@@ -9,7 +10,7 @@ namespace Lord.Gym.Application.Interfaces
     {
         AppUser Authenticate(string username, string password);
 
-        IEnumerable<AppUser> GetAll();
+        Task<List<AppUser>> GetAll();
 
         AppUser GetById(Guid id);
 

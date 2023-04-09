@@ -2,6 +2,7 @@ using Lord.Gym.API.Extensions;
 using Lord.Gym.Application.Extension;
 using Lord.Gym.Application.Implementations;
 using Lord.Gym.Application.Interfaces;
+using Lord.Gym.Infrastructure.Authentication;
 using Lord.Gym.Infrastructure.Extension;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,7 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(/*x => x.Filters.Add<ApiKeyAuthFilter>()*/);
+
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -24,6 +26,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ApiKeyAuthFilter>();
 
 var app = builder.Build();
 
@@ -33,6 +36,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//app.UseMiddleware<ApiKeyAuthMiddleware>();
 
 app.UseAuthorization();
 
