@@ -3,7 +3,7 @@
   <PropertyGroup>
 	<TargetFramework>net6.0</TargetFramework>
 	<UserSecretsId>004d95e6-482c-4078-88f2-d84f427bec61</UserSecretsId>
-	<DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+	<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 	<DockerfileContext>..\..</DockerfileContext>
 	<DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
